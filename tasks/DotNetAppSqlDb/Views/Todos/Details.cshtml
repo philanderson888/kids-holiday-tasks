@@ -1,0 +1,66 @@
+﻿@model DotNetAppSqlDb.Models.Todo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Todo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Done)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Done)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpEarly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpEarly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StayUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StayUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakeGym)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakeGym)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
