@@ -1,0 +1,96 @@
+﻿@model DotNetAppSqlDb.Models.HolidayTask
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HolidayTask</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpBy815)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpBy815)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipWordQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipWordQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JamesWordQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JamesWordQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JohnWordQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JohnWordQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipLastRunDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipLastRunDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipLastWeightsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipLastWeightsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipLastCycleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipLastCycleDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

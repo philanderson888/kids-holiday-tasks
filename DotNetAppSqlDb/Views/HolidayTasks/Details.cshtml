@@ -1,0 +1,90 @@
+﻿@model DotNetAppSqlDb.Models.HolidayTask
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HolidayTask</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpBy815)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpBy815)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipWordQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipWordQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JamesWordQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JamesWordQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JohnWordQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JohnWordQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipLastRunDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipLastRunDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipLastWeightsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipLastWeightsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhilipLastCycleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhilipLastCycleDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
