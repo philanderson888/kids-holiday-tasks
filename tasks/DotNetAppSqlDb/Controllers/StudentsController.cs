@@ -10,107 +10,107 @@ using DotNetAppSqlDb.Models;
 
 namespace DotNetAppSqlDb.Controllers
 {
-    public class TodosController : Controller
+    public class StudentsController : Controller
     {
         private MyDatabaseContext db = new MyDatabaseContext();
 
-        // GET: Todos
+        // GET: Students
         public ActionResult Index()
         {
-            return View(db.Todoes.ToList());
+            return View(db.Students.ToList());
         }
 
-        // GET: Todos/Details/5
+        // GET: Students/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Todo todo = db.Todoes.Find(id);
-            if (todo == null)
+            Student student = db.Students.Find(id);
+            if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(todo);
+            return View(student);
         }
 
-        // GET: Todos/Create
+        // GET: Students/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Todos/Create
+        // POST: Students/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Description,CreatedDate,CategoryName,UpEarly,StayUp,MakeGym")] Todo todo)
+        public ActionResult Create([Bind(Include = "StudentID,StudentName,DateOfBirth,Photo,Height,Weight")] Student student)
         {
             if (ModelState.IsValid)
             {
-                db.Todoes.Add(todo);
+                db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(todo);
+            return View(student);
         }
 
-        // GET: Todos/Edit/5
+        // GET: Students/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Todo todo = db.Todoes.Find(id);
-            if (todo == null)
+            Student student = db.Students.Find(id);
+            if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(todo);
+            return View(student);
         }
 
-        // POST: Todos/Edit/5
+        // POST: Students/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Description,CreatedDate,CategoryName,UpEarly,StayUp,MakeGym")] Todo todo)
+        public ActionResult Edit([Bind(Include = "StudentID,StudentName,DateOfBirth,Photo,Height,Weight")] Student student)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(todo).State = EntityState.Modified;
+                db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(todo);
+            return View(student);
         }
 
-        // GET: Todos/Delete/5
+        // GET: Students/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Todo todo = db.Todoes.Find(id);
-            if (todo == null)
+            Student student = db.Students.Find(id);
+            if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(todo);
+            return View(student);
         }
 
-        // POST: Todos/Delete/5
+        // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Todo todo = db.Todoes.Find(id);
-            db.Todoes.Remove(todo);
+            Student student = db.Students.Find(id);
+            db.Students.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

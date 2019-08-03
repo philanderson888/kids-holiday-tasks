@@ -19,6 +19,16 @@ namespace DotNetAppSqlDb.Models
         {
         }
 
-        public System.Data.Entity.DbSet<DotNetAppSqlDb.Models.Todo> Todoes { get; set; }
+        public DbSet<Todo> Todoes { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Qualification> Qualifications { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>()
+                .HasMany(e => e.ToDos);
+        }
     }
 }

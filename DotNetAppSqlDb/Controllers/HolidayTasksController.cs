@@ -40,6 +40,14 @@ namespace DotNetAppSqlDb.Controllers
         public ActionResult Create()
         {
             ViewBag.UserID = new SelectList(db.Users, "UserID", "UserName");
+
+
+
+            ViewBag.DateToday = DateTime.Now;
+        
+
+
+
             return View();
         }
 

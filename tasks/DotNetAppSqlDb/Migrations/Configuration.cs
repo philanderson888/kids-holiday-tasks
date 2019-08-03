@@ -1,19 +1,19 @@
 namespace DotNetAppSqlDb.Migrations
 {
     using System;
-    using System.Data.Entity;
+ 
     using System.Data.Entity.Migrations;
-    using System.Linq;
+ 
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DotNetAppSqlDb.Models.MyDatabaseContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.MyDatabaseContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "DotNetAppSqlDb.Models.MyDatabaseContext";
         }
 
-        protected override void Seed(DotNetAppSqlDb.Models.MyDatabaseContext context)
+        protected override void Seed(Models.MyDatabaseContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -27,6 +27,9 @@ namespace DotNetAppSqlDb.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.Todoes.AddOrUpdate(
+                new Models.Todo { ID=5, CreatedDate = DateTime.Today,Description="fake data"}
+                );
         }
     }
 }

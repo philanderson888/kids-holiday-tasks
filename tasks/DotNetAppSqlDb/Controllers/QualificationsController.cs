@@ -10,107 +10,107 @@ using DotNetAppSqlDb.Models;
 
 namespace DotNetAppSqlDb.Controllers
 {
-    public class TodosController : Controller
+    public class QualificationsController : Controller
     {
         private MyDatabaseContext db = new MyDatabaseContext();
 
-        // GET: Todos
+        // GET: Qualifications
         public ActionResult Index()
         {
-            return View(db.Todoes.ToList());
+            return View(db.Qualifications.ToList());
         }
 
-        // GET: Todos/Details/5
+        // GET: Qualifications/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Todo todo = db.Todoes.Find(id);
-            if (todo == null)
+            Qualification qualification = db.Qualifications.Find(id);
+            if (qualification == null)
             {
                 return HttpNotFound();
             }
-            return View(todo);
+            return View(qualification);
         }
 
-        // GET: Todos/Create
+        // GET: Qualifications/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Todos/Create
+        // POST: Qualifications/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Description,CreatedDate,CategoryName,UpEarly,StayUp,MakeGym")] Todo todo)
+        public ActionResult Create([Bind(Include = "QualificationId,QualificationName,Section")] Qualification qualification)
         {
             if (ModelState.IsValid)
             {
-                db.Todoes.Add(todo);
+                db.Qualifications.Add(qualification);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(todo);
+            return View(qualification);
         }
 
-        // GET: Todos/Edit/5
+        // GET: Qualifications/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Todo todo = db.Todoes.Find(id);
-            if (todo == null)
+            Qualification qualification = db.Qualifications.Find(id);
+            if (qualification == null)
             {
                 return HttpNotFound();
             }
-            return View(todo);
+            return View(qualification);
         }
 
-        // POST: Todos/Edit/5
+        // POST: Qualifications/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Description,CreatedDate,CategoryName,UpEarly,StayUp,MakeGym")] Todo todo)
+        public ActionResult Edit([Bind(Include = "QualificationId,QualificationName,Section")] Qualification qualification)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(todo).State = EntityState.Modified;
+                db.Entry(qualification).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(todo);
+            return View(qualification);
         }
 
-        // GET: Todos/Delete/5
+        // GET: Qualifications/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Todo todo = db.Todoes.Find(id);
-            if (todo == null)
+            Qualification qualification = db.Qualifications.Find(id);
+            if (qualification == null)
             {
                 return HttpNotFound();
             }
-            return View(todo);
+            return View(qualification);
         }
 
-        // POST: Todos/Delete/5
+        // POST: Qualifications/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Todo todo = db.Todoes.Find(id);
-            db.Todoes.Remove(todo);
+            Qualification qualification = db.Qualifications.Find(id);
+            db.Qualifications.Remove(qualification);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -13,13 +13,15 @@ namespace DotNetAppSqlDb.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
 
-        public bool Done { get; set; }
+        public string CategoryName { get; set; }
 
         public bool UpEarly { get; set; }
 
         public bool StayUp { get; set; }
 
         public bool MakeGym { get; set; }
+
+        public virtual Category Category1 { get; set; }
 
     }
 }
